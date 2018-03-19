@@ -2,140 +2,159 @@
 List of infantry classes. These will have individual skills and equipment mapped to them.
 If you wish to add more soldiers beyond the available variables, you also need to add any new variables to the class lists below as well as to genInit.sqf and genInitBASES.sqf
 */
-sol_A_AA = 	"I_Soldier_AAA_F"; // Assistant AA
-sol_A_AR = 	"I_Soldier_AAR_F"; // Assistant autorifle
-sol_A_AT = 	"I_Soldier_AAT_F"; // Assistant AT
-sol_AA = 	"I_Soldier_AA_F"; // AA
-sol_AR = 	"I_Soldier_AR_F"; // Autorifle
-sol_AT = 	"I_Soldier_AT_F"; // AT
-sol_AMMO = 	"I_Soldier_A_F"; // Ammo bearer
-sol_GL = 	"I_Soldier_GL_F"; // Grenade launcher
-sol_GL2 = 	"I_Soldier_GL_F"; // Grenade launcher (extra)
-sol_LAT = 	"I_Soldier_LAT_F"; // Light AT
-sol_LAT2 = 	"I_Soldier_LAT_F"; // Light AT (extra)
-sol_MG = 	"I_Soldier_AR_F"; // Machinegunner (extra)
-sol_MK = 	"I_Soldier_M_F"; // Marksman
-sol_SL = 	"I_Soldier_SL_F"; // Squad leader
-sol_TL = 	"I_Soldier_TL_F"; // Team leader
-sol_TL2 = 	"I_Soldier_TL_F"; // Team leader (extra)
-sol_EXP = 	"I_Soldier_exp_F"; // Explosives
-sol_R_L = 	"I_Soldier_lite_F"; // Rifleman, light
-sol_REP = 	"I_Soldier_repair_F"; // Repair
-sol_UN = 	"I_Soldier_unarmed_F"; // Unarmed
-sol_RFL = 	"I_soldier_F"; // Rifleman
-sol_SN = 	"I_Sniper_F"; // Sniper
-sol_SP = 	"I_Spotter_F"; // Spotter
-sol_MED = 	"I_medic_F"; // Medic
-sol_ENG = 	"I_engineer_F"; // Engineer
-sol_OFF = 	"I_officer_F"; // Officer
-sol_OFF2 = 	"I_officer_F"; // Officer (extra)
+// Regular infantry
+sol_AMMO        = "I_Soldier_A_F";    // Ammo Bearer
+sol_GL          = "I_Soldier_GL_F";   // Grenadier
+sol_GL2         = sol_GL;             // Grenadier
+sol_LAT         = "I_Soldier_LAT_F";  // Rifleman (AT)
+sol_LAT2        = "I_Soldier_LAT2_F"; // Rifleman (Light AT)
+sol_RFL         = "I_soldier_F";      // Rifleman
+sol_R_L         = "I_Soldier_lite_F"; // Rifleman (Light)
+infList_regular = [sol_AMMO, sol_GL, sol_GL2, sol_LAT, sol_LAT2, sol_R_L, sol_RFL];
 
-sol_CREW = 	"I_crew_F"; // Crew
-sol_CREW2 = "I_crew_F"; // Crew (extra)
-sol_CREW3 = "I_crew_F"; // Crew (extra)
-sol_CREW4 = "I_crew_F"; // Crew (extra)
-sol_DRV = 	"I_crew_F"; // Driver (extra)
-sol_DRV2 = 	"I_crew_F"; // Driver (extra)
-sol_HCREW = "I_helicrew_F"; // Helicopter crew
-sol_HPIL = 	"I_helipilot_F"; // Helicopter pilot
-sol_HPIL2 = "I_helipilot_F"; // Helicopter pilot (extra)
-sol_PIL = 	"I_pilot_F"; // Pilot
-sol_UAV = 	"I_soldier_UAV_F"; // UAV controller
+// Autoreiflemen
+sol_MG       = "I_Soldier_AR_F";  // Autorifleman
+sol_A_AR     = "I_Soldier_AAR_F"; // Asst. Autorifleman
+sol_AR       = sol_MG;            // Autorifleman
+infList_auto = [sol_A_AR, sol_MG, sol_AR];
 
-sol_SUP_AMG = 	"I_support_AMG_F"; // Assistant HMG gunner
-sol_SUP_AMTR = 	"I_support_AMort_F"; // Assistant mortar gunner
-sol_SUP_GMG = 	"I_support_GMG_F"; // GMG gunner
-sol_SUP_MG = 	"I_support_MG_F"; // HMG gunner
-sol_SUP_MTR = 	"I_support_Mort_F"; // mortar gunner
+// Support infantry
+sol_A_AA        = "I_Soldier_AAA_F";    // Asst. Missile Specialist (AA)
+sol_A_AT        = "I_Soldier_AAT_F";    // Asst. Missile Specialist (AT)
+sol_AA          = "I_Soldier_AA_F";     // Missile Specialist (AA)
+sol_AT          = "I_Soldier_AT_F";     // Missile Specialist (AT)
+sol_EXP         = "I_Soldier_exp_F";    // Explosive Specialist
+sol_REP         = "I_Soldier_repair_F"; // Repair Specialist
+sol_ENG         = "I_engineer_F";       // Engineer
+sol_MED         = "I_medic_F";          // Combat Life Saver
+sol_MINE        = "I_soldier_mine_F";    // Mine Specialist
+infList_special = [sol_A_AA, sol_A_AT, sol_AA, sol_AT, sol_EXP, sol_REP, sol_ENG, sol_MED, sol_MINE];
+
+// Leaders
+sol_SL      = "I_Soldier_SL_F"; // Squad Leader
+sol_TL      = "I_Soldier_TL_F"; // Team Leader
+sol_TL2     = sol_TL;           // Team Leader
+infList_NCO = [sol_SL, sol_TL, sol_TL2];
+
+// Officers
+sol_OFF          = "I_officer_F"; // Officer
+sol_OFF2         = sol_OFF;       // Officer
+infList_officers = [sol_OFF, sol_OFF2];
+
+// Snipers / Marksmen
+sol_MK         = "I_Soldier_M_F";    // Marksman
+sol_SN         = "I_Sniper_F";       // Sniper
+sol_SP         = "I_Spotter_F";      // Spotter
+sol_SPA        = "I_ghillie_ard_F";  // Sniper (Arid)
+sol_SPL        = "I_ghillie_lsh_F";  // Sniper (Lush)
+sol_SPS        = "I_ghillie_sard_F"; // Sniper (Semi-Arid)
+infList_sniper = [sol_MK, sol_SN, sol_SP, sol_SPA, sol_SPL, sol_SPS];
+
+// Vehicle crews
+sol_UN       = "I_Soldier_unarmed_F";        // Rifleman (Unarmed)
+sol_CREW     = "I_crew_F";                   // Crewman
+sol_CREW2    = sol_CREW;                     // Crewman
+sol_CREW3    = sol_CREW;                     // Crewman
+sol_CREW4    = sol_CREW;                     // Crewman
+sol_DRV      = sol_CREW;                     // Driver (extra)
+sol_DRV2     = sol_CREW;                     // Driver (extra)
+sol_HCREW    = "I_helicrew_F";               // Helicopter Crew
+sol_UAV      = "I_soldier_UAV_F";            // UAV operator (Darter)
+sol_UAV2     = "I_soldier_UAV_06_F";         // UAV operator (AL-6)
+sol_UAV3     = "I_soldier_UAV_06_medical_F"; // UAV operator (AL-6 Medical)
+// Support infantry (statics)
+sol_SUP_AMG  = "I_support_AMG_F";            // Assistant HMG gunner
+sol_SUP_AMTR = "I_support_AMort_F";          // Assistant mortar gunner
+sol_SUP_GMG  = "I_support_GMG_F";            // GMG gunner
+sol_SUP_MG   = "I_support_MG_F";             // HMG gunner
+sol_SUP_MTR  = "I_support_Mort_F";           // mortar gunner
+infList_crew = [sol_UN, sol_CREW, sol_CREW2, sol_CREW3, sol_CREW4, sol_DRV, sol_DRV2, sol_HCREW, sol_UAV, sol_SUP_AMG, sol_SUP_AMTR, sol_SUP_GMG, sol_SUP_MG, sol_SUP_MTR, sol_UAV2, sol_UAV3];
+
+// Pilots
+sol_HPIL       = "I_helipilot_F";     // Helicopter Pilot
+sol_HPIL2      = sol_HPIL;            // Helicopter Pilot
+sol_PIL        = "I_pilot_F";         // Pilot
+sol_FPIL       = "I_Fighter_Pilot_F"; // Fighter Pilot
+infList_pilots = [sol_HPIL, sol_HPIL2, sol_PIL, sol_FPIL];
 
 // Standard roles for static gunner, crew, and unarmed helicopter pilot
-infGunner =	sol_SUP_MG;
-infCrew = 	sol_CREW;
-infPilot = 	sol_HPIL;
-
-// All classes sorted by role, used for pricing, etc
-infList_officers = 	[sol_OFF, sol_OFF2];
-infList_sniper = 	[sol_MK, sol_SN, sol_SP];
-infList_NCO = 		[sol_SL, sol_TL, sol_TL2];
-infList_special = 	[sol_A_AA, sol_A_AT, sol_AA, sol_AT, sol_EXP, sol_REP, sol_ENG, sol_MED];
-infList_auto = 		[sol_A_AR, sol_MG];
-infList_regular = 	[sol_AMMO, sol_GL, sol_GL2, sol_LAT, sol_LAT2, sol_R_L, sol_RFL];
-infList_crew = 		[sol_UN, sol_CREW, sol_CREW2, sol_CREW3, sol_CREW4, sol_DRV, sol_DRV2, sol_HCREW, sol_UAV, sol_SUP_AMG, sol_SUP_AMTR, sol_SUP_GMG, sol_SUP_MG, sol_SUP_MTR];
-infList_pilots = 	[sol_HPIL, sol_HPIL2, sol_PIL];
+infGunner = sol_SUP_MG;
+infCrew   = sol_CREW;
+infPilot  = sol_HPIL;
 
 // Vehicles
-vehTrucks = 		["I_Truck_02_covered_F","I_Truck_02_transport_F"]; // trucks that spawn at outposts, etc
-vehPatrol =			["I_MRAP_03_F","I_MRAP_03_hmg_F","I_MRAP_03_gmg_F","I_Heli_light_03_unarmed_F"]; // vehicles used for road patrols;
-vehAPC = 			["I_APC_Wheeled_03_cannon_F"]; // APCs
-vehIFV = 			["I_APC_tracked_03_cannon_F"]; // IFVs
-vehTank = 			["I_MBT_03_cannon_F"]; // MBTs
-vehSupply = 		["I_Truck_02_fuel_F","I_Truck_02_medical_F","I_Truck_02_ammo_F"]; // supply vehicles (ammo, fuel, med)
-vehAmmo = 			"I_Truck_02_ammo_F"; // ammo truck, for special missions
-vehFuel = 			["I_Truck_02_fuel_F"]; // fuel truck for missions
-vehLead = 			["I_MRAP_03_hmg_F","I_MRAP_03_gmg_F"]; // lead vehicle for convoys, preferably armed MRAP/car
-standardMRAP = 		["I_MRAP_03_F"]; // default transport MRAP/car
-vehTruckBox = 		["I_Truck_02_box_F"]; // repair truck or at least a prop
-vehPatrolBoat = 	["I_Boat_Armed_01_minigun_F"];
-vehDef= 			["I_APC_Wheeled_03_cannon_F"];
-
-/*
-Not in use with AAF
-vehTruckAA = 		"";
+vehTrucks     = ["I_Truck_02_covered_F", "I_Truck_02_transport_F"];                                                                                        // Zamak Transport, Zamak Transport (Covered)
+vehPatrol     = ["I_MRAP_03_F", "I_MRAP_03_hmg_F", "I_MRAP_03_gmg_F", "I_Heli_light_03_unarmed_F", "I_LT_01_AT_F", "I_LT_01_cannon_F", "I_LT_01_scout_F"]; // vehicles used for road patrols, Strider (Unarmed, GMG, HMG), Hellcat (Unarmed), Nyx (At, 20mm Cannon, Recon)
+vehAPC        = ["I_APC_Wheeled_03_cannon_F"];                                                                                                             // APCs
+vehIFV        = ["I_APC_tracked_03_cannon_F", "I_LT_01_AT_F", "I_LT_01_cannon_F"];                                                                         // IFVs
+vehTank       = ["I_MBT_03_cannon_F", "I_MBT_04_cannon_F", "I_MBT_04_command_F"];                                                                                                                     // MBTs
+vehSupply     = ["I_Truck_02_fuel_F", "I_Truck_02_medical_F", "I_Truck_02_ammo_F", "I_Truck_02_box_F"];                                                    // supply vehicles (ammo, fuel, med, repair)
+vehAmmo       = "I_Truck_02_ammo_F";                                                                                                                       // ammo truck, for special missions
+vehFuel       = ["I_Truck_02_fuel_F"];                                                                                                                     // fuel truck for missions
+vehLead       = ["I_MRAP_03_hmg_F", "I_MRAP_03_gmg_F", "I_LT_01_AT_F", "I_LT_01_cannon_F"];                                                                // lead vehicle for convoys, preferably armed MRAP/car
+standardMRAP  = ["I_MRAP_03_F"];                                                                                                                           // default transport MRAP/car
+vehTruckBox   = ["I_Truck_02_box_F", "I_Truck_02_MRL_F"];                                                                                                                      // repair truck or at least a prop
+vehPatrolBoat = ["I_Boat_Armed_01_minigun_F"];
+vehDef        = ["I_APC_Wheeled_03_cannon_F"];
+vehTruckAA    = "I_LT_01_AA_F";
 guer_vehicleArray pushBackUnique vehTruckAA;
-*/
 
 var_AAF_groundForces = vehTrucks + vehPatrol + vehAPC + vehIFV + vehTank + vehLead + standardMRAP;
 var_AAF_groundForces = var_AAF_groundForces arrayIntersect var_AAF_groundForces;
 
+// Helicopters
+heli_transport     = "I_Heli_Transport_02_F";
+heli_light_armed   = "I_Heli_light_03_F";
+heli_light_unarmed = "I_Heli_light_03_unarmed_F";
+heli_unarmed       = [heli_transport, heli_light_unarmed, "I_Heli_Light_01_F", "I_Heli_Light_02_unarmed_F"];                       // Transport helicopters
+heli_armed         = [heli_light_armed, "I_Heli_Light_01_dynamicloadout_F", "I_Heli_Light_02_Dynamicloadout_F"];                   // Armed helicopters
+
 // Airforce
-heli_unarmed = 		["I_Heli_Transport_02_F","I_Heli_light_03_unarmed_F"]; // (un-)armed transport helicopters
-heli_armed = 		["I_Heli_light_03_F"]; // armed helicopters
-heli_escort = 		"I_Heli_light_03_F";
-planes = 			["I_Plane_Fighter_03_CAS_F","I_Plane_Fighter_03_AA_F"];; // attack planes
-heli_default = 		"I_Heli_light_03_unarmed_F"; // default helicopter -- NOT AN ARRAY!
-heli_transport = 	"I_Heli_Transport_02_F";
-indUAV_large = 		"I_UAV_02_F"; // large UAV, unarmed
+heli_escort    = heli_light_armed;                                                                                                // Escort helicopter
+heli_default   = heli_light_unarmed;                                                                                              // Default helicopter
+heli_transport = heli_transport;                                                                                                  // Transport helicopter
+planes         = ["I_Plane_Fighter_03_CAS_F", "I_Plane_Fighter_03_AA_F", "I_Plane_Fighter_04_F", "I_Plane_Fighter_04_Cluster_F"]; // Aircraft
+indUAV_large   = "I_UAV_02_F";                                                                                                    // UAV
 
 // Initial motorpool/airforce
-enemyMotorpoolDef = "I_Truck_02_covered_F"; // fallback vehicle in case of an empty motorpool
-enemyMotorpool = 	["I_Truck_02_covered_F"]; // starting/current motorpool
-indAirForce = 		["I_Heli_Transport_02_F","I_Heli_light_03_unarmed_F"]; // starting/current airforce
+enemyMotorpoolDef = "I_Truck_02_covered_F";                                                                                          // fallback vehicle in case of an empty motorpool
+enemyMotorpool    = ["I_Truck_02_covered_F", "I_Truck_02_covered_F", "I_Truck_02_covered_F", "I_LT_01_cannon_F"]; // starting/current motorpool
+indAirForce       = ["I_Heli_Transport_02_F", "I_Heli_light_03_unarmed_F"];                                                          // starting/current airforce
 
 // Config paths for pre-defined groups -- required if group names are used
-cfgInf = 				(configfile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry");
+cfgInf = (configfile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry");
 
 // Standard group arrays, used for spawning groups -- can use full config paths, config group names, arrays of individual soldiers
-infPatrol = 		["HAF_InfSentry","HAF_InfSentry","HAF_InfSentry","HAF_SniperTeam"];
-infGarrisonSmall = 	["HAF_InfSentry"];
-infTeamATAA =		["HAF_InfTeam_AA","HAF_InfTeam_AT"];
-infTeam = 			["HAF_InfTeam_AA","HAF_InfTeam_AT","HAF_InfTeam","HAF_InfTeam","HAF_InfTeam"];
-infSquad = 			["HAF_InfSquad","HAF_InfSquad_Weapons"];
-infAA =				["HAF_InfTeam_AA"];
-infAT =				["HAF_InfTeam_AT"];
+infPatrol        = ["HAF_InfSentry","HAF_InfSentry","HAF_InfSentry","HAF_SniperTeam"];
+infGarrisonSmall = ["HAF_InfSentry"];
+infTeamATAA      = ["HAF_InfTeam_AA","HAF_InfTeam_AT"];
+infTeam          = ["HAF_InfTeam_AA","HAF_InfTeam_AT","HAF_InfTeam","HAF_InfTeam","HAF_InfTeam"];
+infSquad         = ["HAF_InfSquad","HAF_InfSquad_Weapons"];
+infAA            = ["HAF_InfTeam_AA"];
+infAT            = ["HAF_InfTeam_AT"];
 
 // Statics to be used
-statMG = 			"I_HMG_01_high_F";
-statAT = 			"I_static_AT_F";
-statAA = 			"I_static_AA_F";
-statAA2 = 			"I_static_AA_F";
-statMortar = 		"I_Mortar_01_F";
-
-statMGlow = 		"I_HMG_01_F";
-statMGtower = 		"I_HMG_01_high_F";
+statMG      = "I_HMG_01_high_F";
+statAT      = "I_static_AT_F";
+statAA      = "I_static_AA_F";
+statAA2     = "I_static_AA_F";
+statMortar  = "I_Mortar_01_F";
+statMGlow   = "I_HMG_01_F";
+statMGtower = "I_HMG_01_high_F";
 
 // Lists of statics to determine the defensive capabilities at locations
-statics_allMGs = 		statics_allMGs + [statMG];
-statics_allATs = 		statics_allATs + [statAT];
-statics_allAAs = 		statics_allAAs + [statAA];
-statics_allMortars = 	statics_allMortars + [statMortar];
+statics_allMGs     = statics_allMGs + [statMG];
+statics_allATs     = statics_allATs + [statAT];
+statics_allAAs     = statics_allAAs + [statAA];
+statics_allMortars = statics_allMortars + [statMortar];
 
 // Backpacks of dismantled statics -- 0: weapon, 1: tripod/support
-statMGBackpacks = 		["I_HMG_01_high_weapon_F","I_HMG_01_support_high_F"];
-statATBackpacks = 		["I_AT_01_weapon_F","I_HMG_01_support_F"];
-statAABackpacks = 		["I_AA_01_weapon_F","I_HMG_01_support_F"];
-statMortarBackpacks = 	["I_Mortar_01_weapon_F","I_Mortar_01_support_F"];
-statMGlowBackpacks = 	["I_HMG_01_F","I_HMG_01_support_F"];
-statMGtowerBackpacks = 	["I_HMG_01_high_weapon_F","I_HMG_01_support_high_F"];
+statMGBackpacks      = ["I_HMG_01_high_weapon_F","I_HMG_01_support_high_F"];
+statATBackpacks      = ["I_AT_01_weapon_F","I_HMG_01_support_F"];
+statAABackpacks      = ["I_AA_01_weapon_F","I_HMG_01_support_F"];
+statMortarBackpacks  = ["I_Mortar_01_weapon_F","I_Mortar_01_support_F"];
+statMGlowBackpacks   = ["I_HMG_01_F","I_HMG_01_support_F"];
+statMGtowerBackpacks = ["I_HMG_01_high_weapon_F","I_HMG_01_support_high_F"];
 
 /*
 ================ Gear ================
@@ -459,11 +478,11 @@ unlockedBackpacks = [
 unlockedOptics = [];
 
 // Default rifle types, required to unlock specific unit types. Unfortunatly, not all mods classify their weapons the same way, so automatic detection doesn't work reliably enough.
-gear_machineGuns = gear_machineGuns + ["LMG_Mk200_F","LMG_Zafir_F","arifle_MX_SW_F"];
-gear_machineGuns = gear_machineGuns arrayIntersect gear_machineGuns;
+gear_machineGuns  = gear_machineGuns + ["LMG_Mk200_F","LMG_Zafir_F","arifle_MX_SW_F"];
+gear_machineGuns  = gear_machineGuns arrayIntersect gear_machineGuns;
 gear_sniperRifles = gear_sniperRifles + ["srifle_DMR_01_F","srifle_EBR_F","srifle_GM6_F","srifle_LRR_F","arifle_MXM_F","srifle_DMR_06_olive_F"];
 gear_sniperRifles = gear_sniperRifles arrayIntersect gear_sniperRifles;
-genGL = ["arifle_Katiba_GL_F","arifle_MX_GL_F","arifle_Mk20_GL_F","arifle_TRG21_GL_F"];
+genGL             = ["arifle_Katiba_GL_F","arifle_MX_GL_F","arifle_Mk20_GL_F","arifle_TRG21_GL_F"];
 
 // Standard rifles for your troops to be equipped with
 baseRifles =+ unlockedRifles;
@@ -473,9 +492,8 @@ basicGear = unlockedWeapons + unlockedMagazines + unlockedItems + unlockedBackpa
 startingWeapons =+ unlockedWeapons;
 
 // Default launchers
-genAALaunchers = ["launch_I_Titan_F"];
-genATLaunchers = ["launch_I_Titan_short_F","launch_NLAW_F"];
-
+genAALaunchers   = ["launch_I_Titan_F"];
+genATLaunchers   = ["launch_I_Titan_short_F","launch_NLAW_F"];
 IND_gear_heavyAT = "launch_I_Titan_short_F";
 IND_gear_lightAT = "launch_NLAW_F";
 
