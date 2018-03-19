@@ -1,0 +1,8 @@
+{
+    "alignment.chars": {
+        "\/\/": {
+            "spaceBefore": 1,
+            "spaceAfter": 1
+        }
+    }
+}
