@@ -387,4 +387,7 @@ class Params {
 class CfgFunctions {
 	#include "Functions\functionList.hpp"
 	#include "JeroenArsenal\functions.hpp"
+    #include "Config\functions.hpp"
 };
+
+#include "Config\factions.hpp"
